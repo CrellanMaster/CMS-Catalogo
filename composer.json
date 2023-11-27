@@ -1,0 +1,19 @@
+{
+    "name": "crellan/app",
+    "description": "Projeto catálogo virtual para minha mãe",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Crellan\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sandro",
+            "email": "devsandrounity@gmail.com"
+        }
+    ],
+    "require": {
+        "coffeecode/router": "^2.0"
+    }
+}
