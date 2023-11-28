@@ -9,7 +9,7 @@ class DatabaseConnection
     private $username = "root";
     private $password = "";
     /** @var \PDO $connection */
-    private $connection;
+    public $connection;
 
     public function __construct()
     {
@@ -18,11 +18,15 @@ class DatabaseConnection
     public function connect()
     {
         try {
-            $this->connection = new \PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->username, $this->password);
+            $this->connection = new \PDO("mysql:host=" . $this->host . ";port=3360;dbname=" . $this->dbname, $this->username, $this->password);
             $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            return $this->connection;
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }
+    }
+
+    public function close()
+    {
+        $this->connection = null;
     }
 }

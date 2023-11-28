@@ -6,6 +6,7 @@ use Crellan\App\Core\Entities\BaseEntity;
 
 class User extends BaseEntity
 {
+    protected $table = "users";
     public $username;
     public $passkey;
     public $email;
