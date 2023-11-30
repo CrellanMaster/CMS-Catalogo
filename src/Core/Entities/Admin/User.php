@@ -13,4 +13,5 @@ class User extends BaseEntity
     public $ip;
     public $token;
     public $last_login;
+    public $role;
 }
