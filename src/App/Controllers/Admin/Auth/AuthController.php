@@ -16,11 +16,11 @@ class AuthController extends BaseController
         $auth->verifySessionToLogin();
         $email = "email2@email.com.br";
         $passkey = "123qwe";
-        $user = $auth->AuthUser($email, $passkey);
-        if ($user) {
-            $auth->GenerateSession($user);
+        $authResult = $auth->AuthUser($email, $passkey);
+        if ($authResult->authenticate) {
+            $auth->GenerateSession($authResult->user);
         } else {
-            AuthMessageEnum::FAILED_LOGIN;
+            var_dump(AuthMessageEnum::ERR_FAILED_LOGIN);
         }
     }
 }
